@@ -1,5 +1,7 @@
 package br.com.brunolutterbach.gerenciamentolivros.model;
 
+import br.com.brunolutterbach.gerenciamentolivros.dto.BookCreationData;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -22,5 +24,14 @@ public class Book {
     private String genre;
     private LocalDateTime postDate = LocalDateTime.now();
 
+    public Book() {
+    }
 
+    public Book(BookCreationData bookCreationData) {
+        this.title = bookCreationData.title();
+        this.author = bookCreationData.author();
+        this.description = bookCreationData.description();
+        this.coverImage = bookCreationData.coverImage();
+        this.genre = bookCreationData.genre();
+    }
 }
