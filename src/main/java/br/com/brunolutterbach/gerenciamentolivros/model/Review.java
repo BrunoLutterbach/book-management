@@ -2,10 +2,7 @@ package br.com.brunolutterbach.gerenciamentolivros.model;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,5 +16,7 @@ public class Review {
     private double rating;
     private LocalDateTime reviewDate = LocalDateTime.now();
     private LocalDateTime updateDate;
+    @ManyToOne
+    private Book book;
 
 }

@@ -2,14 +2,12 @@ package br.com.brunolutterbach.gerenciamentolivros.model;
 
 import br.com.brunolutterbach.gerenciamentolivros.dto.BookCreationData;
 import br.com.brunolutterbach.gerenciamentolivros.dto.BookUpdateData;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -24,6 +22,8 @@ public class Book {
     private String coverImage;
     private String genre;
     private LocalDateTime postDate = LocalDateTime.now();
+    @OneToMany(mappedBy = "book")
+    private List<Review> reviews = new ArrayList<>();
 
     public Book() {
     }
