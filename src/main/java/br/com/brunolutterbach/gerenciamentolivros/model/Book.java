@@ -1,6 +1,7 @@
 package br.com.brunolutterbach.gerenciamentolivros.model;
 
 import br.com.brunolutterbach.gerenciamentolivros.dto.BookCreationData;
+import br.com.brunolutterbach.gerenciamentolivros.dto.BookUpdateData;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
@@ -33,5 +34,23 @@ public class Book {
         this.description = bookCreationData.description();
         this.coverImage = bookCreationData.coverImage();
         this.genre = bookCreationData.genre();
+    }
+
+    public void update(BookUpdateData bookUpdateData) {
+        if (bookUpdateData.title() != null) {
+            this.title = bookUpdateData.title();
+        }
+        if (bookUpdateData.author() != null) {
+            this.author = bookUpdateData.author();
+        }
+        if (bookUpdateData.description() != null) {
+            this.description = bookUpdateData.description();
+        }
+        if (bookUpdateData.coverImage() != null) {
+            this.coverImage = bookUpdateData.coverImage();
+        }
+        if (bookUpdateData.genre() != null) {
+            this.genre = bookUpdateData.genre();
+        }
     }
 }
