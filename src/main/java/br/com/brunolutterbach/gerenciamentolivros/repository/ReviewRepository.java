@@ -1,0 +1,7 @@
+package br.com.brunolutterbach.gerenciamentolivros.repository;
+
+import br.com.brunolutterbach.gerenciamentolivros.model.Review;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReviewRepository extends JpaRepository<Review, Long> {
+}
