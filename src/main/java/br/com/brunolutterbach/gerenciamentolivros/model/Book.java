@@ -1,7 +1,7 @@
 package br.com.brunolutterbach.gerenciamentolivros.model;
 
-import br.com.brunolutterbach.gerenciamentolivros.dto.BookCreationData;
-import br.com.brunolutterbach.gerenciamentolivros.dto.BookUpdateData;
+import br.com.brunolutterbach.gerenciamentolivros.dto.book.BookCreationData;
+import br.com.brunolutterbach.gerenciamentolivros.dto.book.BookUpdateData;
 import lombok.Data;
 
 import javax.persistence.*;
