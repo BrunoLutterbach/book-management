@@ -1,9 +1,8 @@
 package br.com.brunolutterbach.gerenciamentolivros.controller;
 
-import br.com.brunolutterbach.gerenciamentolivros.dto.BookCreationData;
-import br.com.brunolutterbach.gerenciamentolivros.dto.BookResponse;
-import br.com.brunolutterbach.gerenciamentolivros.dto.BookUpdateData;
-import br.com.brunolutterbach.gerenciamentolivros.repository.BookRepository;
+import br.com.brunolutterbach.gerenciamentolivros.dto.book.BookCreationData;
+import br.com.brunolutterbach.gerenciamentolivros.dto.book.BookResponse;
+import br.com.brunolutterbach.gerenciamentolivros.dto.book.BookUpdateData;
 import br.com.brunolutterbach.gerenciamentolivros.service.BookService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
