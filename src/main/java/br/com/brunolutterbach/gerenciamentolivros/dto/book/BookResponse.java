@@ -1,4 +1,4 @@
-package br.com.brunolutterbach.gerenciamentolivros.dto;
+package br.com.brunolutterbach.gerenciamentolivros.dto.book;
 
 import br.com.brunolutterbach.gerenciamentolivros.model.Book;
 

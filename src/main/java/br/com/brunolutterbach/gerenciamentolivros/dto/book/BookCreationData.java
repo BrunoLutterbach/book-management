@@ -1,4 +1,4 @@
-package br.com.brunolutterbach.gerenciamentolivros.dto;
+package br.com.brunolutterbach.gerenciamentolivros.dto.book;
 
 import com.sun.istack.NotNull;
 
