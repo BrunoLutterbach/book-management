@@ -28,14 +28,20 @@ public class ReviewService {
 
     }
 
-    public ReviewResponse createReview(ReviewCreationData reviewCreationData, Long id) {
+    public ReviewResponse createReview(ReviewCreationData creationData, Long id) {
+        if (creationData.rating() > 5) {
+            throw new IllegalArgumentException("Rating must be between 0 and 5");
+        }
         var book = bookRepository.getReferenceById(id);
-        var review = new Review(reviewCreationData, book);
+        var review = new Review(creationData, book);
         repository.save(review);
         return new ReviewResponse(review);
     }
 
     public ReviewResponse updateReview(ReviewUpdateData updateData, Long id) {
+        if (updateData.rating() > 5) {
+            throw new IllegalArgumentException("Rating must be between 0 and 5");
+        }
         var review = repository.getReferenceById(id);
         review.update(updateData);
         repository.save(review);
