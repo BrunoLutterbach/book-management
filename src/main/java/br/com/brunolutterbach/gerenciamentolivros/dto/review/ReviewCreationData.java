@@ -6,6 +6,5 @@ public record ReviewCreationData(
         @NotNull
         String comment,
         @NotNull
-
         double rating) {
 }
