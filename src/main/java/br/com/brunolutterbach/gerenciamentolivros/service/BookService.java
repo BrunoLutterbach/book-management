@@ -7,19 +7,17 @@ import br.com.brunolutterbach.gerenciamentolivros.model.Book;
 import br.com.brunolutterbach.gerenciamentolivros.repository.BookRepository;
 import br.com.brunolutterbach.gerenciamentolivros.repository.UserPreferenceRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 @AllArgsConstructor
 public class BookService {
 
     final BookRepository bookRepository;
-    final UserPreferenceRepository userPreferenceRepository;
-    final EmailSenderService emailSenderService;
+    final ApplicationEventPublisher eventPublisher;
 
     public BookResponse getBookDetails(Long id) {
         var book = bookRepository.getReferenceById(id);
@@ -30,15 +28,10 @@ public class BookService {
         return bookRepository.findAll(pageable).map(BookResponse::new);
     }
 
-    public BookResponse createBook(BookCreationData bookCreationData) {
+    public BookResponse createBook(BookCreationData bookCreationData)  {
         var book = new Book(bookCreationData);
         bookRepository.save(book);
-        List<String> emails = userPreferenceRepository.findAllEmailsWithGenre(book.getGenre());
-        for (String email : emails) {
-            String name = userPreferenceRepository.getNameByEmail(email);
-            emailSenderService.sendEmail(email, "[" + book.getGenre().toUpperCase() + "]" + " Novo livro cadastrado",
-                    "Olá, " + name + "! Um novo livro foi cadastrado com o gênero " + book.getGenre() + "!");
-        }
+        this.eventPublisher.publishEvent(book);
         return new BookResponse(book);
     }
 
