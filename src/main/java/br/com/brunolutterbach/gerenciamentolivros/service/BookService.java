@@ -5,7 +5,6 @@ import br.com.brunolutterbach.gerenciamentolivros.dto.book.BookResponse;
 import br.com.brunolutterbach.gerenciamentolivros.dto.book.BookUpdateData;
 import br.com.brunolutterbach.gerenciamentolivros.model.Book;
 import br.com.brunolutterbach.gerenciamentolivros.repository.BookRepository;
-import br.com.brunolutterbach.gerenciamentolivros.repository.UserPreferenceRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
