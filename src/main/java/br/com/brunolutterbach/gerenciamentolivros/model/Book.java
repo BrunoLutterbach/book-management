@@ -22,7 +22,7 @@ public class Book {
     private String coverImage;
     private String genre;
     private LocalDateTime postDate = LocalDateTime.now();
-    @OneToMany(mappedBy = "book")
+    @OneToMany(mappedBy = "book", orphanRemoval = true)
     private List<Review> reviews = new ArrayList<>();
 
     public Book() {
